@@ -95,7 +95,7 @@ public class WorkoutTypePlannerController {
     	int age = Integer.valueOf(ageTextField.getText());
     	int weight = Integer.valueOf(weightTextField.getText());
     	
-    	WorkoutCreator workout = new WorkoutCreator(age, weight);
+    	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
     	
     	
     	int pushups = workout.returnPushups();
@@ -118,21 +118,17 @@ public class WorkoutTypePlannerController {
     	int age = Integer.valueOf(ageTextField.getText());
     	int weight = Integer.valueOf(weightTextField.getText());
     	
-    	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
+    	WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight);
     	
     	
-    	int pushups = workout.returnPushups();
-    	int situps = workout.returnSitups();
-    	int squats = workout.returnSquats();
+    	String formatting = workout.format();
     	
     	VBox workoutList = new VBox();
-    	Label pushupLabel = new Label("Pushup to do: " + pushups);
-    	Label situpsLabel = new Label("situps to do: " + situps);
-    	Label squatsLabel = new Label("squats to do: " + squats);
+    	Label formatLabel = new Label(formatting);
     	
-    	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
+    	workoutList.getChildren().addAll(formatLabel);
     	
-    	Scene workoutInfo = new Scene(workoutList);
+    	Scene workoutInfo = new Scene(workoutList, 300, 800);
     	applicationStage.setScene(workoutInfo);
     }
     
