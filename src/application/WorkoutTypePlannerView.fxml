@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="53.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WorkoutTypePlannerController">
+   <children>
+      <HBox prefHeight="10.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#dailyWorkoutInfo" prefHeight="25.0" prefWidth="104.0" text="Day Workout" />
+            <TextField prefHeight="25.0" prefWidth="172.0" promptText="Day Workout" text="Workout plan for the day" />
+         </children>
+      </HBox>
+      <HBox prefHeight="32.0" prefWidth="100.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#weeklyWorkoutInfo" text="Weekly Workout" />
+            <TextField prefHeight="25.0" prefWidth="172.0" promptText="Weekly Workout" text="Workout plan for the week" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
