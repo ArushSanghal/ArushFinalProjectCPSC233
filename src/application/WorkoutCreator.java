@@ -14,7 +14,7 @@ public class WorkoutCreator {
 		
 	}
 	
-	public void exerciseMaker() {
+	private void exerciseMaker() {
 		
 		if (age < 13) {
 			pushups = (int) (weight * 0.5 * 2);
@@ -36,6 +36,18 @@ public class WorkoutCreator {
 			situps = (int) (weight * 0.5 * 3);
 			squats = (int) (weight * 0.5 * 4);
 		}
+	}
+	
+	public int returnPushups() {
+		return pushups;
+	}
+	
+	public int returnSitups() {
+		return situps;
+	}
+	
+	public int returnSquats() {
+		return squats;
 	}
 
 }
