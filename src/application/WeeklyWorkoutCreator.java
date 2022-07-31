@@ -53,9 +53,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void sundayWorkout() {
 		if (age < 13) {
-			sunPushups = (int) (weight * 0.185 * 2);
-			sunSitups = (int) (weight * 0.185 * 3);
-			sunSquats = (int) (weight * 0.185 * 4);
+			sunPushups = (int) (weight * 0.25 * 2);
+			sunSitups = (int) (weight * 0.25 * 3);
+			sunSquats = (int) (weight * 0.25 * 4);
 		}
 		if (age >= 13 && age < 18) {
 			sunPushups = (int) (weight * 0.17 * 3);
@@ -76,9 +76,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void mondayWorkout() {
 		if (age < 13) {
-			monPushups = (int) (weight * 0.185 * 1);
-			monSitups = (int) (weight * 0.185 * 2);
-			monSquats = (int) (weight * 0.185 * 3);
+			monPushups = (int) (weight * 0.25 * 1);
+			monSitups = (int) (weight * 0.25 * 2);
+			monSquats = (int) (weight * 0.25 * 3);
 		}
 		if (age >= 13 && age < 18) {
 			monPushups = (int) (weight * 0.17 * 2);
@@ -99,9 +99,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void tuesdayWorkout() {
 		if (age < 13) {
-			tuePushups = (int) (weight * 0.185 * 3);
-			tueSitups = (int) (weight * 0.185 * 4);
-			tueSquats = (int) (weight * 0.185 * 5);
+			tuePushups = (int) (weight * 0.25 * 3);
+			tueSitups = (int) (weight * 0.25 * 4);
+			tueSquats = (int) (weight * 0.25 * 5);
 		}
 		if (age >= 13 && age < 18) {
 			tuePushups = (int) (weight * 0.17 * 4);
@@ -123,9 +123,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void wednesdayWorkout() {
 		if (age < 13) {
-			wedPushups = (int) (weight * 0.185 * 1);
-			wedSitups = (int) (weight * 0.185 * 2);
-			wedSquats = (int) (weight * 0.185 * 3);
+			wedPushups = (int) (weight * 0.25 * 1);
+			wedSitups = (int) (weight * 0.25 * 2);
+			wedSquats = (int) (weight * 0.25 * 3);
 		}
 		if (age >= 13 && age < 18) {
 			wedPushups = (int) (weight * 0.17 * 2);
@@ -147,9 +147,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void thursdayWorkout() {
 		if (age < 13) {
-			thurPushups = (int) (weight * 0.185 * 2);
-			thurSitups = (int) (weight * 0.185 * 4);
-			thurSquats = (int) (weight * 0.185 * 4);
+			thurPushups = (int) (weight * 0.25 * 2);
+			thurSitups = (int) (weight * 0.25 * 4);
+			thurSquats = (int) (weight * 0.25 * 4);
 		}
 		if (age >= 13 && age < 18) {
 			thurPushups = (int) (weight * 0.17 * 3);
@@ -171,9 +171,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void fridayWorkout() {
 		if (age < 13) {
-			friPushups = (int) (weight * 0.185 * 2);
-			friSitups = (int) (weight * 0.185 * 1);
-			friSquats = (int) (weight * 0.185 * 2);
+			friPushups = (int) (weight * 0.25 * 2);
+			friSitups = (int) (weight * 0.25 * 1);
+			friSquats = (int) (weight * 0.25 * 2);
 		}
 		if (age >= 13 && age < 18) {
 			friPushups = (int) (weight * 0.17 * 3);
@@ -195,9 +195,9 @@ public class WeeklyWorkoutCreator {
 	
 	private void saturdayWorkout() {
 		if (age < 13) {
-			satPushups = (int) (weight * 0.185 * 2);
-			satSitups = (int) (weight * 0.185 * 3);
-			satSquats = (int) (weight * 0.185 * 4);
+			satPushups = (int) (weight * 0.25 * 2);
+			satSitups = (int) (weight * 0.25 * 3);
+			satSquats = (int) (weight * 0.25 * 4);
 		}
 		if (age >= 13 && age < 18) {
 			satPushups = (int) (weight * 0.17 * 3);
