@@ -40,6 +40,11 @@ public class WorkoutTypePlannerController {
     	infoHolder.getChildren().add(backButton);
     	
     	
+    	Button submitButton = new Button("Submit");
+    	submitButton.setOnAction(submitEvent -> workoutDailySchedule(ageTextField, weightTextField));
+    	infoHolder.getChildren().add(submitButton);
+    	
+    	
     	Scene dailyInfo = new Scene(infoHolder);
     	applicationStage.setScene(dailyInfo);
 
@@ -53,6 +58,17 @@ public class WorkoutTypePlannerController {
     
     void sendBack(Scene mainScene) {
     	applicationStage.setScene(mainScene);
+    }
+    
+    void workoutDailySchedule(TextField ageTextField, TextField weightTextField) {
+    	int age = Integer.valueOf(ageTextField.getText());
+    	int weight = Integer.valueOf(weightTextField.getText());
+    	
+    	WorkoutCreator workout = new WorkoutCreator(age, weight);
+    	
+    	int pushups = workout.returnPushups();
+    	int situps = workout.returnSitups();
+    	int squats = workout.returnSquats();
     }
     
 
