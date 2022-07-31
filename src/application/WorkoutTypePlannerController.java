@@ -27,7 +27,7 @@ public class WorkoutTypePlannerController {
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
     	
-    	Label weightLabel = new Label("Weight");
+    	Label weightLabel = new Label("Weight (kg)");
     	TextField weightTextField = new TextField();
     	HBox weightHolder = new HBox();
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
@@ -66,9 +66,20 @@ public class WorkoutTypePlannerController {
     	
     	WorkoutCreator workout = new WorkoutCreator(age, weight);
     	
+    	
     	int pushups = workout.returnPushups();
     	int situps = workout.returnSitups();
     	int squats = workout.returnSquats();
+    	
+    	VBox workoutList = new VBox();
+    	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	Label situpsLabel = new Label("situps to do: " + situps);
+    	Label squatsLabel = new Label("squats to do: " + squats);
+    	
+    	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
+    	
+    	Scene workoutInfo = new Scene(workoutList);
+    	applicationStage.setScene(workoutInfo);
     }
     
 
