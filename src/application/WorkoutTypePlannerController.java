@@ -130,7 +130,6 @@ public class WorkoutTypePlannerController {
     	
     	Scene workoutInfo = new Scene(workoutList, 300, 800);
     	applicationStage.setScene(workoutInfo);
-    	
     }
     
 
