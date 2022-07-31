@@ -52,6 +52,37 @@ public class WorkoutTypePlannerController {
 
     @FXML
     void weeklyWorkoutInfo(ActionEvent event) {
+    	
+    	Scene mainScene = applicationStage.getScene();
+    	
+    	VBox infoHolder = new VBox();
+    	
+    	Label ageLabel = new Label("Age");
+    	TextField ageTextField = new TextField();
+    	HBox ageHolder = new HBox();
+    	ageHolder.getChildren().addAll(ageLabel, ageTextField);
+    	
+    	
+    	Label weightLabel = new Label("Weight (kg)");
+    	TextField weightTextField = new TextField();
+    	HBox weightHolder = new HBox();
+    	weightHolder.getChildren().addAll(weightLabel, weightTextField);
+    	
+    	infoHolder.getChildren().addAll(ageHolder, weightHolder);
+    	
+    	
+    	Button backButton = new Button("Back");
+    	backButton.setOnAction(backEvent -> sendBack(mainScene));
+    	infoHolder.getChildren().add(backButton);
+    	
+    	
+    	Button submitButton = new Button("Submit");
+    	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField));
+    	infoHolder.getChildren().add(submitButton);
+    	
+    	
+    	Scene dailyInfo = new Scene(infoHolder);
+    	applicationStage.setScene(dailyInfo);
 
     }
     
@@ -82,5 +113,11 @@ public class WorkoutTypePlannerController {
     	applicationStage.setScene(workoutInfo);
     }
     
+    
+    void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField) {
+    	
+    }
+    
 
 }
+
