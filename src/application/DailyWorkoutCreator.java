@@ -1,6 +1,6 @@
 package application;
 
-public class WorkoutCreator {
+public class DailyWorkoutCreator {
 	
 	private int age = 0;
 	private int weight = 0;
@@ -8,7 +8,7 @@ public class WorkoutCreator {
 	private int situps = 0;
 	private int squats = 0;
 	
-	public WorkoutCreator(int ageGiven, int weightGiven) {
+	public DailyWorkoutCreator(int ageGiven, int weightGiven) {
 		age = ageGiven;
 		weight = weightGiven;
 		exerciseMaker();
