@@ -18,24 +18,24 @@ public class DailyWorkoutCreator {
 	private void exerciseMaker() {
 		
 		if (age < 13) {
-			pushups = (int) (weight * 0.5 * 2);
-			situps = (int) (weight * 0.5 * 3);
-			squats = (int) (weight * 0.5 * 4);
+			pushups = (int) (weight * 0.25 * 2);
+			situps = (int) (weight * 0.25 * 3);
+			squats = (int) (weight * 0.25 * 4);
 		}
 		if (age >= 13 && age < 18) {
-			pushups = (int) (weight * 0.3 * 3);
-			situps = (int) (weight * 0.3 * 5);
-			squats = (int) (weight * 0.3 * 7);
+			pushups = (int) (weight * 0.17 * 3);
+			situps = (int) (weight * 0.17 * 5);
+			squats = (int) (weight * 0.17 * 7);
 		}
 		if (age >= 18 && age < 50) {
-			pushups = (int) (weight * 0.4 * 4);
-			situps = (int) (weight * 0.4 * 6);
-			squats = (int) (weight * 0.4 * 8);
+			pushups = (int) (weight * 0.10 * 4);
+			situps = (int) (weight * 0.10 * 6);
+			squats = (int) (weight * 0.10 * 8);
 		}
 		if (age >= 50) {
-			pushups = (int) (weight * 0.2 * 2);
-			situps = (int) (weight * 0.2 * 3);
-			squats = (int) (weight * 0.2 * 4);
+			pushups = (int) (weight * 0.18 * 2);
+			situps = (int) (weight * 0.18 * 3);
+			squats = (int) (weight * 0.18 * 4);
 		}
 	}
 	
