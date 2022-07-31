@@ -45,6 +45,9 @@ public class WorkoutTypePlannerController {
     	infoHolder.getChildren().add(submitButton);
     	
     	
+    	dailyErrorLabel = new Label();
+    	infoHolder.getChildren().add(dailyErrorLabel);
+    	
     	Scene dailyInfo = new Scene(infoHolder);
     	applicationStage.setScene(dailyInfo);
 
@@ -80,6 +83,8 @@ public class WorkoutTypePlannerController {
     	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField));
     	infoHolder.getChildren().add(submitButton);
     	
+    	weeklyErrorLabel = new Label();
+    	infoHolder.getChildren().add(weeklyErrorLabel);
     	
     	Scene dailyInfo = new Scene(infoHolder);
     	applicationStage.setScene(dailyInfo);
@@ -92,31 +97,42 @@ public class WorkoutTypePlannerController {
     }
     
     void workoutDailySchedule(TextField ageTextField, TextField weightTextField) {
-    	int age = Integer.valueOf(ageTextField.getText());
-    	int weight = Integer.valueOf(weightTextField.getText());
-    	
-    	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
-    	
-    	
-    	int pushups = workout.returnPushups();
-    	int situps = workout.returnSitups();
-    	int squats = workout.returnSquats();
-    	
-    	VBox workoutList = new VBox();
-    	Label pushupLabel = new Label("Pushup to do: " + pushups);
-    	Label situpsLabel = new Label("situps to do: " + situps);
-    	Label squatsLabel = new Label("squats to do: " + squats);
-    	
-    	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
-    	
-    	Scene workoutInfo = new Scene(workoutList);
-    	applicationStage.setScene(workoutInfo);
+    	try {
+    		int age = Integer.valueOf(ageTextField.getText());
+    		int weight = Integer.valueOf(weightTextField.getText());
+    		if (weight <= 0 || age <= 0) {
+        		dailyErrorLabel.setText("Please enter a value greater than 0");
+        	}
+        	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
+        	
+        	int pushups = workout.returnPushups();
+        	int situps = workout.returnSitups();
+        	int squats = workout.returnSquats();
+        	
+        	VBox workoutList = new VBox();
+        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+        	Label situpsLabel = new Label("situps to do: " + situps);
+        	Label squatsLabel = new Label("squats to do: " + squats);
+        	
+        	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
+        	if (weight > 0) {
+        		Scene workoutInfo = new Scene(workoutList);
+        		applicationStage.setScene(workoutInfo);
+        	}
+    	}
+    	catch (NumberFormatException e) {
+    		dailyErrorLabel.setText("Please enter a valid number");
+    	}
     }
     
     
     void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField) {
+    	try {
     		int age = Integer.valueOf(ageTextField.getText());
     		int weight = Integer.valueOf(weightTextField.getText());
+    		if (weight <= 0 || age <= 0) {
+        		weeklyErrorLabel.setText("Please enter a value greater than 0");
+        	}
     		
     		WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight);
     		
@@ -127,11 +143,19 @@ public class WorkoutTypePlannerController {
     		Label formatLabel = new Label(formatting);
     		
     		workoutList.getChildren().addAll(formatLabel);
-    		
-    		Scene workoutInfo = new Scene(workoutList, 300, 800);
-    		applicationStage.setScene(workoutInfo);
+    		if (weight > 0) {
+    			Scene workoutInfo = new Scene(workoutList);
+    			applicationStage.setScene(workoutInfo);
+    		}
+    	}
+    	catch (NumberFormatException e) {
+        	weeklyErrorLabel.setText("Please enter a valid number");
+        	}
     }
     
+    private Label dailyErrorLabel;
+    
+    private Label weeklyErrorLabel;
 
 }
 

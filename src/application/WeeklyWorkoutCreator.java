@@ -53,166 +53,166 @@ public class WeeklyWorkoutCreator {
 	
 	private void sundayWorkout() {
 		if (age < 13) {
-			sunPushups = (int) (weight * 0.5 * 2);
-			sunSitups = (int) (weight * 0.5 * 3);
-			sunSquats = (int) (weight * 0.5 * 4);
+			sunPushups = (int) (weight * 0.185 * 2);
+			sunSitups = (int) (weight * 0.185 * 3);
+			sunSquats = (int) (weight * 0.185 * 4);
 		}
 		if (age >= 13 && age < 18) {
-			sunPushups = (int) (weight * 0.3 * 3);
-			sunSitups = (int) (weight * 0.3 * 5);
-			sunSquats = (int) (weight * 0.3 * 7);
+			sunPushups = (int) (weight * 0.17 * 3);
+			sunSitups = (int) (weight * 0.17 * 5);
+			sunSquats = (int) (weight * 0.17 * 7);
 		}
 		if (age >= 18 && age < 50) {
-			sunPushups = (int) (weight * 0.4 * 4);
-			sunSitups = (int) (weight * 0.4 * 6);
-			sunSquats = (int) (weight * 0.4 * 8);
+			sunPushups = (int) (weight * 0.10 * 4);
+			sunSitups = (int) (weight * 0.10 * 6);
+			sunSquats = (int) (weight * 0.10 * 8);
 		}
 		if (age >= 50) {
-			sunPushups = (int) (weight * 0.2 * 2);
-			sunSitups = (int) (weight * 0.2 * 3);
-			sunSquats = (int) (weight * 0.2 * 4);
+			sunPushups = (int) (weight * 0.18 * 2);
+			sunSitups = (int) (weight * 0.18 * 3);
+			sunSquats = (int) (weight * 0.18 * 4);
 		}
 	}
 	
 	private void mondayWorkout() {
 		if (age < 13) {
-			monPushups = (int) (weight * 0.5 * 2);
-			monSitups = (int) (weight * 0.5 * 3);
-			monSquats = (int) (weight * 0.5 * 4);
+			monPushups = (int) (weight * 0.185 * 1);
+			monSitups = (int) (weight * 0.185 * 2);
+			monSquats = (int) (weight * 0.185 * 3);
 		}
 		if (age >= 13 && age < 18) {
-			monPushups = (int) (weight * 0.3 * 3);
-			monSitups = (int) (weight * 0.3 * 5);
-			monSquats = (int) (weight * 0.3 * 7);
+			monPushups = (int) (weight * 0.17 * 2);
+			monSitups = (int) (weight * 0.17 * 4);
+			monSquats = (int) (weight * 0.17 * 6);
 		}
 		if (age >= 18 && age < 50) {
-			monPushups = (int) (weight * 0.4 * 4);
-			monSitups = (int) (weight * 0.4 * 6);
-			monSquats = (int) (weight * 0.4 * 8);
+			monPushups = (int) (weight * 0.10 * 3);
+			monSitups = (int) (weight * 0.10 * 5);
+			monSquats = (int) (weight * 0.10 * 7);
 		}
 		if (age >= 50) {
-			monPushups = (int) (weight * 0.2 * 2);
-			monSitups = (int) (weight * 0.2 * 3);
-			monSquats = (int) (weight * 0.2 * 4);
+			monPushups = (int) (weight * 0.18 * 1);
+			monSitups = (int) (weight * 0.18 * 2);
+			monSquats = (int) (weight * 0.18 * 3);
 		}
 	}
 	
 	private void tuesdayWorkout() {
 		if (age < 13) {
-			tuePushups = (int) (weight * 0.5 * 2);
-			tueSitups = (int) (weight * 0.5 * 3);
-			tueSquats = (int) (weight * 0.5 * 4);
+			tuePushups = (int) (weight * 0.185 * 3);
+			tueSitups = (int) (weight * 0.185 * 4);
+			tueSquats = (int) (weight * 0.185 * 5);
 		}
 		if (age >= 13 && age < 18) {
-			tuePushups = (int) (weight * 0.3 * 3);
-			tueSitups = (int) (weight * 0.3 * 5);
-			tueSquats = (int) (weight * 0.3 * 7);
+			tuePushups = (int) (weight * 0.17 * 4);
+			tueSitups = (int) (weight * 0.17 * 6);
+			tueSquats = (int) (weight * 0.17 * 8);
 		}
 		if (age >= 18 && age < 50) {
-			tuePushups = (int) (weight * 0.4 * 4);
-			tueSitups = (int) (weight * 0.4 * 6);
-			tueSquats = (int) (weight * 0.4 * 8);
+			tuePushups = (int) (weight * 0.10 * 5);
+			tueSitups = (int) (weight * 0.10 * 7);
+			tueSquats = (int) (weight * 0.10 * 9);
 		}
 		if (age >= 50) {
-			tuePushups = (int) (weight * 0.2 * 2);
-			tueSitups = (int) (weight * 0.2 * 3);
-			tueSquats = (int) (weight * 0.2 * 4);
+			tuePushups = (int) (weight * 0.18 * 3);
+			tueSitups = (int) (weight * 0.18 * 4);
+			tueSquats = (int) (weight * 0.18 * 5);
 		}
 		
 	}
 	
 	private void wednesdayWorkout() {
 		if (age < 13) {
-			wedPushups = (int) (weight * 0.5 * 2);
-			wedSitups = (int) (weight * 0.5 * 3);
-			wedSquats = (int) (weight * 0.5 * 4);
+			wedPushups = (int) (weight * 0.185 * 1);
+			wedSitups = (int) (weight * 0.185 * 2);
+			wedSquats = (int) (weight * 0.185 * 3);
 		}
 		if (age >= 13 && age < 18) {
-			wedPushups = (int) (weight * 0.3 * 3);
-			wedSitups = (int) (weight * 0.3 * 5);
-			wedSquats = (int) (weight * 0.3 * 7);
+			wedPushups = (int) (weight * 0.17 * 2);
+			wedSitups = (int) (weight * 0.17 * 4);
+			wedSquats = (int) (weight * 0.17 * 6);
 		}
 		if (age >= 18 && age < 50) {
-			wedPushups = (int) (weight * 0.4 * 4);
-			wedSitups = (int) (weight * 0.4 * 6);
-			wedSquats = (int) (weight * 0.4 * 8);
+			wedPushups = (int) (weight * 0.10 * 3);
+			wedSitups = (int) (weight * 0.10 * 5);
+			wedSquats = (int) (weight * 0.10 * 7);
 		}
 		if (age >= 50) {
-			wedPushups = (int) (weight * 0.2 * 2);
-			wedSitups = (int) (weight * 0.2 * 3);
-			wedSquats = (int) (weight * 0.2 * 4);
+			wedPushups = (int) (weight * 0.18 * 1);
+			wedSitups = (int) (weight * 0.18 * 2);
+			wedSquats = (int) (weight * 0.18 * 3);
 		}
 		
 	}
 	
 	private void thursdayWorkout() {
 		if (age < 13) {
-			thurPushups = (int) (weight * 0.5 * 2);
-			thurSitups = (int) (weight * 0.5 * 3);
-			thurSquats = (int) (weight * 0.5 * 4);
+			thurPushups = (int) (weight * 0.185 * 2);
+			thurSitups = (int) (weight * 0.185 * 4);
+			thurSquats = (int) (weight * 0.185 * 4);
 		}
 		if (age >= 13 && age < 18) {
-			thurPushups = (int) (weight * 0.3 * 3);
-			thurSitups = (int) (weight * 0.3 * 5);
-			thurSquats = (int) (weight * 0.3 * 7);
+			thurPushups = (int) (weight * 0.17 * 3);
+			thurSitups = (int) (weight * 0.17 * 6);
+			thurSquats = (int) (weight * 0.17 * 7);
 		}
 		if (age >= 18 && age < 50) {
-			thurPushups = (int) (weight * 0.4 * 4);
-			thurSitups = (int) (weight * 0.4 * 6);
-			thurSquats = (int) (weight * 0.4 * 8);
+			thurPushups = (int) (weight * 0.10 * 4);
+			thurSitups = (int) (weight * 0.10 * 7);
+			thurSquats = (int) (weight * 0.10 * 8);
 		}
 		if (age >= 50) {
-			thurPushups = (int) (weight * 0.2 * 2);
-			thurSitups = (int) (weight * 0.2 * 3);
-			thurSquats = (int) (weight * 0.2 * 4);
+			thurPushups = (int) (weight * 0.18 * 2);
+			thurSitups = (int) (weight * 0.18 * 4);
+			thurSquats = (int) (weight * 0.18 * 4);
 		}
 		
 	}
 	
 	private void fridayWorkout() {
 		if (age < 13) {
-			friPushups = (int) (weight * 0.5 * 2);
-			friSitups = (int) (weight * 0.5 * 3);
-			friSquats = (int) (weight * 0.5 * 4);
+			friPushups = (int) (weight * 0.185 * 2);
+			friSitups = (int) (weight * 0.185 * 1);
+			friSquats = (int) (weight * 0.185 * 2);
 		}
 		if (age >= 13 && age < 18) {
-			friPushups = (int) (weight * 0.3 * 3);
-			friSitups = (int) (weight * 0.3 * 5);
-			friSquats = (int) (weight * 0.3 * 7);
+			friPushups = (int) (weight * 0.17 * 3);
+			friSitups = (int) (weight * 0.17 * 3);
+			friSquats = (int) (weight * 0.17 * 5);
 		}
 		if (age >= 18 && age < 50) {
-			friPushups = (int) (weight * 0.4 * 4);
-			friSitups = (int) (weight * 0.4 * 6);
-			friSquats = (int) (weight * 0.4 * 8);
+			friPushups = (int) (weight * 0.10 * 4);
+			friSitups = (int) (weight * 0.10 * 4);
+			friSquats = (int) (weight * 0.10 * 6);
 		}
 		if (age >= 50) {
-			friPushups = (int) (weight * 0.2 * 2);
-			friSitups = (int) (weight * 0.2 * 3);
-			friSquats = (int) (weight * 0.2 * 4);
+			friPushups = (int) (weight * 0.18 * 2);
+			friSitups = (int) (weight * 0.18 * 1);
+			friSquats = (int) (weight * 0.18 * 2);
 		}
 		
 	}
 	
 	private void saturdayWorkout() {
 		if (age < 13) {
-			satPushups = (int) (weight * 0.5 * 2);
-			satSitups = (int) (weight * 0.5 * 3);
-			satSquats = (int) (weight * 0.5 * 4);
+			satPushups = (int) (weight * 0.185 * 2);
+			satSitups = (int) (weight * 0.185 * 3);
+			satSquats = (int) (weight * 0.185 * 4);
 		}
 		if (age >= 13 && age < 18) {
-			satPushups = (int) (weight * 0.3 * 3);
-			satSitups = (int) (weight * 0.3 * 5);
-			satSquats = (int) (weight * 0.3 * 7);
+			satPushups = (int) (weight * 0.17 * 3);
+			satSitups = (int) (weight * 0.17 * 5);
+			satSquats = (int) (weight * 0.17 * 7);
 		}
 		if (age >= 18 && age < 50) {
-			satPushups = (int) (weight * 0.4 * 4);
-			satSitups = (int) (weight * 0.4 * 6);
-			satSquats = (int) (weight * 0.4 * 8);
+			satPushups = (int) (weight * 0.10 * 4);
+			satSitups = (int) (weight * 0.10 * 6);
+			satSquats = (int) (weight * 0.10 * 8);
 		}
 		if (age >= 50) {
-			satPushups = (int) (weight * 0.2 * 2);
-			satSitups = (int) (weight * 0.2 * 3);
-			satSquats = (int) (weight * 0.2 * 4);
+			satPushups = (int) (weight * 0.18 * 2);
+			satSitups = (int) (weight * 0.18 * 3);
+			satSquats = (int) (weight * 0.18 * 4);
 		}
 	}
 	
