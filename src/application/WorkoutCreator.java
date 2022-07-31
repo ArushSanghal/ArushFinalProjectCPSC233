@@ -11,6 +11,7 @@ public class WorkoutCreator {
 	public WorkoutCreator(int ageGiven, int weightGiven) {
 		age = ageGiven;
 		weight = weightGiven;
+		exerciseMaker();
 		
 	}
 	
@@ -27,14 +28,14 @@ public class WorkoutCreator {
 			squats = (int) (weight * 0.3 * 7);
 		}
 		if (age >= 18 && age < 50) {
-			pushups = (int) (weight * 0.5 * 4);
-			situps = (int) (weight * 0.5 * 6);
-			squats = (int) (weight * 0.5 * 8);
+			pushups = (int) (weight * 0.4 * 4);
+			situps = (int) (weight * 0.4 * 6);
+			squats = (int) (weight * 0.4 * 8);
 		}
 		if (age >= 50) {
-			pushups = (int) (weight * 0.5 * 2);
-			situps = (int) (weight * 0.5 * 3);
-			squats = (int) (weight * 0.5 * 4);
+			pushups = (int) (weight * 0.2 * 2);
+			situps = (int) (weight * 0.2 * 3);
+			squats = (int) (weight * 0.2 * 4);
 		}
 	}
 	
