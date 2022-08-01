@@ -2,6 +2,8 @@ package application;
 
 public class DailyWorkoutCreator {
 	
+	//Private variables initialized so that they can be updated and
+	//referred to later
 	private int age = 0;
 	private int weight = 0;
 	private int pushups = 0;
@@ -9,14 +11,18 @@ public class DailyWorkoutCreator {
 	private int squats = 0;
 	
 	public DailyWorkoutCreator(int ageGiven, int weightGiven) {
+		//Stores the values for age and weight
 		age = ageGiven;
 		weight = weightGiven;
+		
+		//calls a method to create a work out
 		exerciseMaker();
 		
 	}
 	
 	private void exerciseMaker() {
-		
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			pushups = (int) (weight * 0.25 * 2);
 			situps = (int) (weight * 0.25 * 3);
@@ -40,14 +46,17 @@ public class DailyWorkoutCreator {
 	}
 	
 	public int returnPushups() {
+		//returns the value of pushups
 		return pushups;
 	}
 	
 	public int returnSitups() {
+		//returns the value of situps
 		return situps;
 	}
 	
 	public int returnSquats() {
+		//returns the value of squats
 		return squats;
 	}
 

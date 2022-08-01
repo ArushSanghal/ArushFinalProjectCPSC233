@@ -13,107 +13,167 @@ import javafx.stage.Stage;
 public class WorkoutTypePlannerController {
 	Stage applicationStage;
 
-
+	/**
+	 * Method will create a GUI where a user can enter their age and weight which will be used in the calculation
+	 * process for determining a work out that can be done for the day
+	 * 
+	 * @param dailyWorkoutEvent An ActionEvent that causes the code to run when the Button is clicked
+	 * @return a work out based on the users age and weight otherwise returns an error if the values entered are not allowed
+	 */
     @FXML
     void dailyWorkoutInfo(ActionEvent dailyWorkoutEvent) {
     	
+    	//Saves the original GUI for later
     	Scene mainScene = applicationStage.getScene();
     	
+    	//Initializes a VBox that will store everything later
     	VBox infoHolder = new VBox();
     	
+    	//Create a label and textfield for age where users can enter their age
+    	//Then stores it in a HBox for later
     	Label ageLabel = new Label("Age");
     	TextField ageTextField = new TextField();
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
-    	
+    	//Create a label and textfield for age where users can enter their weight
+    	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
     	TextField weightTextField = new TextField();
     	HBox weightHolder = new HBox();
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
     	
+    	//Stores the two HBoxes from before into the VBox
     	infoHolder.getChildren().addAll(ageHolder, weightHolder);
     	
-    	
+    	//Creates a back button which can send back to the original GUI
+    	//Adds it to the VBox
     	Button backButton = new Button("Back");
     	backButton.setOnAction(backEvent -> sendBack(mainScene));
     	infoHolder.getChildren().add(backButton);
     	
-    	
+    	//Creates a submit button which initializes calculations for a workout
+    	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
     	submitButton.setOnAction(submitEvent -> workoutDailySchedule(ageTextField, weightTextField));
     	infoHolder.getChildren().add(submitButton);
     	
-    	
+    	//Creates an error message if user input is invalid
     	dailyErrorLabel = new Label();
     	infoHolder.getChildren().add(dailyErrorLabel);
     	
+    	//initializes the GUI for user input
     	Scene dailyInfo = new Scene(infoHolder);
     	applicationStage.setScene(dailyInfo);
 
     }
 
+    /**
+     * Method will create a GUI where a user can enter their age and weight which will be used in the calculation
+	 * process for determining a work out that can be done for the week
+     * 
+     * @param weeklyWorkoutEvent An ActionEvent that causes the code to run when the Button is clicked
+     * @return a work out based on the users age and weight otherwise returns an error if the values entered are not allowed
+     */
     @FXML
-    void weeklyWorkoutInfo(ActionEvent event) {
+    void weeklyWorkoutInfo(ActionEvent weeklyWorkoutEvent) {
     	
+    	//Saves the original GUI for later
     	Scene mainScene = applicationStage.getScene();
     	
+    	//Initializes a VBox that will store everything later
     	VBox infoHolder = new VBox();
     	
+    	//Create a label and textfield for age where users can enter their age
+    	//Then stores it in a HBox for later
     	Label ageLabel = new Label("Age");
     	TextField ageTextField = new TextField();
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
-    	
+    	//Create a label and textfield for age where users can enter their weight
+    	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
     	TextField weightTextField = new TextField();
     	HBox weightHolder = new HBox();
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
     	
+    	//Stores the two HBoxes from before into the VBox
     	infoHolder.getChildren().addAll(ageHolder, weightHolder);
     	
-    	
+    	//Creates a back button which can send back to the original GUI
+    	//Adds it to the VBox
     	Button backButton = new Button("Back");
     	backButton.setOnAction(backEvent -> sendBack(mainScene));
     	infoHolder.getChildren().add(backButton);
     	
-    	
+    	//Creates a submit button which initializes calculations for a work out
+    	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
     	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField));
     	infoHolder.getChildren().add(submitButton);
     	
+    	//Creates an error message if user input is invalid
     	weeklyErrorLabel = new Label();
     	infoHolder.getChildren().add(weeklyErrorLabel);
     	
+    	//initializes the GUI for user input
     	Scene dailyInfo = new Scene(infoHolder);
     	applicationStage.setScene(dailyInfo);
 
     }
     
-    
+    /**
+     * Used to bring the original GUI back when user requests it
+     * 
+     * @param mainScene The original GUI scene from the start
+     * @return re-initializes the GUI from the start 
+     */
     void sendBack(Scene mainScene) {
+    	//initializes original GUI
     	applicationStage.setScene(mainScene);
     }
     
+    /**
+     * Sends values for calculation for a recommended work out for the day for the user based
+     * on their inputs for age and weight. Then displays a new GUI with the recommended work out
+     * for the day.
+     * 
+     * @param ageTextField The TextField the user had input for their age
+     * @param weightTextField The TextField the user had input for their weight
+     * @return Creates a GUI which shows the work out for the day for the user
+     */
     void workoutDailySchedule(TextField ageTextField, TextField weightTextField) {
+    	//Try and Catch statement test to see if the user entered a valid number
     	try {
+    		//stores the age and weight
     		int age = Integer.valueOf(ageTextField.getText());
-    		int weight = Integer.valueOf(weightTextField.getText());
+    		double weightd = Double.parseDouble(weightTextField.getText());
+    		int weight = (int) weightd;
+    		
+    		//Tests to see if the weight or age is less than or equal to 0
+    		//and creates an error message to send back if it is
     		if (weight <= 0 || age <= 0) {
         		dailyErrorLabel.setText("Please enter a value greater than 0");
         	}
+    		
+    		//calls the DailyWorkoutCreator Function 
         	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
         	
+        	//Stores the pushups, situps, and squats calculated 
         	int pushups = workout.returnPushups();
         	int situps = workout.returnSitups();
         	int squats = workout.returnSquats();
         	
+        	//Creates a VBox to store the values in for later to display
         	VBox workoutList = new VBox();
+        	
+        	//Creates labels to show workouts that should be done
         	Label pushupLabel = new Label("Pushup to do: " + pushups);
         	Label situpsLabel = new Label("situps to do: " + situps);
         	Label squatsLabel = new Label("squats to do: " + squats);
         	
+        	//Stores the label into the VBox
         	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
         	if (weight > 0) {
         		Scene workoutInfo = new Scene(workoutList);
@@ -125,23 +185,39 @@ public class WorkoutTypePlannerController {
     	}
     }
     
-    
+    /**
+     * Sends values for calculation for a recommended work out for the day for the user based
+     * on their inputs for age and weight. Then displays a new GUI with the recommended work out
+     * for the week.
+     * 
+     * @param ageTextField The TextField the user had input for their age
+     * @param weightTextField The TextField the user had input for their weight
+     * @return Creates a GUI which shows the work out for the week for the user
+     */
     void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField) {
+    	//Try and Catch statement test to see if the user entered a valid number
     	try {
+    		//stores the age and weight
     		int age = Integer.valueOf(ageTextField.getText());
     		int weight = Integer.valueOf(weightTextField.getText());
+    		
+    		//Tests to see if the weight or age is less than or equal to 0
+    		//and creates an error message to send back if it is
     		if (weight <= 0 || age <= 0) {
         		weeklyErrorLabel.setText("Please enter a value greater than 0");
         	}
     		
+    		//calls the WeeklyWorkoutCreator Function
     		WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight);
     		
-    		
+    		//Calls the format function from the WeeklyWorkoutCreator Class
     		String formatting = workout.format();
     		
+    		//Creates a VBox and label with the format
     		VBox workoutList = new VBox();
     		Label formatLabel = new Label(formatting);
     		
+    		//Adds the formatted work outs to the VBox
     		workoutList.getChildren().addAll(formatLabel);
     		if (weight > 0) {
     			Scene workoutInfo = new Scene(workoutList);

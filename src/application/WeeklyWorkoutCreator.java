@@ -2,6 +2,8 @@ package application;
 
 public class WeeklyWorkoutCreator {
 	
+	//Private variables initialized so that they can be updated and
+	//referred to later
 	private int age = 0;
 	private int weight = 0;
 	
@@ -33,14 +35,26 @@ public class WeeklyWorkoutCreator {
 	private int satSitups = 0;
 	private int satSquats = 0;
 	
+	/**
+	 * Constructor for WeeklyWorkoutCreator used to setup everything whenever the method is called upon
+	 * 
+	 * @param ageGiven value of age user had previously entered
+	 * @param weightGiven value of weight user had previously entered
+	 */
 	public WeeklyWorkoutCreator(int ageGiven, int weightGiven) {
+		//Stores the values for age and weight
 		age = ageGiven;
 		weight = weightGiven;
+		
+		//calls a method to run multiple other methods
 		weeklyScheduleRunner();
 		
 	}
-	
+	/**
+	 * Runs all the work out calculations for each day
+	 */
 	private void weeklyScheduleRunner() {
+		//runs calculation methods for work outs for each day in a week
 		sundayWorkout();
 		mondayWorkout();
 		tuesdayWorkout();
@@ -51,7 +65,12 @@ public class WeeklyWorkoutCreator {
 		
 	}
 	
+	/**
+	 * Calculates a work out for Sunday based on age and weight 
+	 */
 	private void sundayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			sunPushups = (int) (weight * 0.25 * 2);
 			sunSitups = (int) (weight * 0.25 * 3);
@@ -74,7 +93,12 @@ public class WeeklyWorkoutCreator {
 		}
 	}
 	
+	/**
+	 * Calculates a work out for Monday based on age and weight 
+	 */
 	private void mondayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			monPushups = (int) (weight * 0.25 * 1);
 			monSitups = (int) (weight * 0.25 * 2);
@@ -97,7 +121,12 @@ public class WeeklyWorkoutCreator {
 		}
 	}
 	
+	/**
+	 * Calculates a work out for Tuesday based on age and weight 
+	 */
 	private void tuesdayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			tuePushups = (int) (weight * 0.25 * 3);
 			tueSitups = (int) (weight * 0.25 * 4);
@@ -121,7 +150,12 @@ public class WeeklyWorkoutCreator {
 		
 	}
 	
+	/**
+	 * Calculates a work out for Wednesday based on age and weight 
+	 */
 	private void wednesdayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			wedPushups = (int) (weight * 0.25 * 1);
 			wedSitups = (int) (weight * 0.25 * 2);
@@ -145,7 +179,12 @@ public class WeeklyWorkoutCreator {
 		
 	}
 	
+	/**
+	 * Calculates a work out for Thursday based on age and weight 
+	 */
 	private void thursdayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			thurPushups = (int) (weight * 0.25 * 2);
 			thurSitups = (int) (weight * 0.25 * 4);
@@ -169,7 +208,12 @@ public class WeeklyWorkoutCreator {
 		
 	}
 	
+	/**
+	 * Calculates a work out for Friday based on age and weight 
+	 */
 	private void fridayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			friPushups = (int) (weight * 0.25 * 2);
 			friSitups = (int) (weight * 0.25 * 1);
@@ -193,7 +237,12 @@ public class WeeklyWorkoutCreator {
 		
 	}
 	
+	/**
+	 * Calculates a work out for Saturday based on age and weight 
+	 */
 	private void saturdayWorkout() {
+		//Checks to see the age range, and calculates number of pushups
+		//situps and squats to do based on weight
 		if (age < 13) {
 			satPushups = (int) (weight * 0.25 * 2);
 			satSitups = (int) (weight * 0.25 * 3);
@@ -216,7 +265,13 @@ public class WeeklyWorkoutCreator {
 		}
 	}
 	
+	/**
+	 * Formats all the workouts for each day in the week into an easy to read format
+	 * 
+	 */
 	public String format() {
+		//Formats work outs to do based on day and displays them
+		//in an easy format to see
 		String workoutSchedule;
 		workoutSchedule = "=====Sunday=====" + "\n" + "Pushups to do: " + sunPushups + "\n" 
 				+ "Situps to do: " + sunSitups + "\n" + "Squats to do: " + sunSquats + "\n";

@@ -15,7 +15,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			
+			//initializes the GUI 
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/WorkoutTypePlannerView.fxml"));
 			WorkoutTypePlannerController controller = (WorkoutTypePlannerController)loader.getController();
