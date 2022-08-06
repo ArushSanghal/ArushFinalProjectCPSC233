@@ -1,39 +1,30 @@
 package application;
 
-public class WeeklyWorkoutCreator {
+public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	
 	//Private variables initialized so that they can be updated and
 	//referred to later
-	private int age = 0;
-	private int weight = 0;
+	private int pushups = 0;
+	private int situps = 0;
+	private int squats = 0;
+	private double[] ageMultiplierValues = {0.25, 0.17, 0.10, 0.18};
+	private int[] pushupValuesUnderThirteen = {2, 1, 3, 1, 2, 2, 2};
+	private int[] situpsValuesUnderThirteen = {3, 2, 4, 2, 4, 1, 3};
+	private int[] squatsValuesUnderThirteen = {4, 3, 5, 3, 4, 2, 4};
 	
-	private int sunPushups = 0;
-	private int sunSitups = 0;
-	private int sunSquats = 0;
+	private int[] pushupValuesBetweenThirteenAndEighteen = {3, 2, 4, 2, 3, 3, 3};
+	private int[] situpsValuesBetweenThirteenAndEighteen = {5, 4, 6, 4, 5, 3, 5};
+	private int[] squatsValuesBetweenThirteenAndEighteen = {7, 6, 8, 6, 7, 5, 7};
 	
-	private int monPushups = 0;
-	private int monSitups = 0;
-	private int monSquats = 0;
+	private int[] pushupValuesBetweenEighteenAndFifty = {4, 3, 5, 3, 4, 4, 4};
+	private int[] situpsValuesBetweenEighteenAndFifty = {6, 5, 7, 5, 7, 4, 6};
+	private int[] squatsValuesBetweenEighteenAndFifty = {8, 7, 9, 7, 8, 6, 8};
 	
-	private int tuePushups = 0;
-	private int tueSitups = 0;
-	private int tueSquats = 0;
+	private int[] pushupValuesAboveFifty = {2, 1, 3, 1, 2, 2, 2};
+	private int[] situpsValuesAboveFifty = {3, 2, 4, 2, 4, 1, 3};
+	private int[] squatsValuesAboveFifty = {4, 3, 5, 3, 4, 2, 4};
 	
-	private int wedPushups = 0;
-	private int wedSitups = 0;
-	private int wedSquats = 0;
 	
-	private int thurPushups = 0;
-	private int thurSitups = 0;
-	private int thurSquats = 0;
-	
-	private int friPushups = 0;
-	private int friSitups = 0;
-	private int friSquats = 0;
-	
-	private int satPushups = 0;
-	private int satSitups = 0;
-	private int satSquats = 0;
 	
 	/**
 	 * Constructor for WeeklyWorkoutCreator used to setup everything whenever the method is called upon
@@ -41,260 +32,197 @@ public class WeeklyWorkoutCreator {
 	 * @param ageGiven value of age user had previously entered
 	 * @param weightGiven value of weight user had previously entered
 	 */
-	public WeeklyWorkoutCreator(int ageGiven, int weightGiven) {
+	public WeeklyWorkoutCreator(int ageGiven, int weightGiven, int indexGiven) {
 		//Stores the values for age and weight
-		age = ageGiven;
-		weight = weightGiven;
+		this.setAge(ageGiven);
+		this.setWeight(weightGiven);
+		this.setIndex(indexGiven);
 		
-		//calls a method to run multiple other methods
-		weeklyScheduleRunner();
-		
-	}
-	/**
-	 * Runs all the work out calculations for each day
-	 */
-	private void weeklyScheduleRunner() {
-		//runs calculation methods for work outs for each day in a week
-		sundayWorkout();
-		mondayWorkout();
-		tuesdayWorkout();
-		wednesdayWorkout();
-		thursdayWorkout();
-		fridayWorkout();
-		saturdayWorkout();
+		workoutMaker();
 		
 	}
 	
 	/**
 	 * Calculates a work out for Sunday based on age and weight 
 	 */
-	private void sundayWorkout() {
+	private void workoutMaker() {
 		//Checks to see the age range, and calculates number of pushups
 		//situps and squats to do based on weight
-		if (age < 13) {
-			sunPushups = (int) (weight * 0.25 * 2);
-			sunSitups = (int) (weight * 0.25 * 3);
-			sunSquats = (int) (weight * 0.25 * 4);
+		int weight = this.getWeight();
+		int age = this.getAge();
+		int index = this.getIndex();
+		if (index == 0) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
 		}
-		if (age >= 13 && age < 18) {
-			sunPushups = (int) (weight * 0.17 * 3);
-			sunSitups = (int) (weight * 0.17 * 5);
-			sunSquats = (int) (weight * 0.17 * 7);
+		
+		if (index == 1) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
 		}
-		if (age >= 18 && age < 50) {
-			sunPushups = (int) (weight * 0.10 * 4);
-			sunSitups = (int) (weight * 0.10 * 6);
-			sunSquats = (int) (weight * 0.10 * 8);
+		
+		if (index == 2) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
 		}
-		if (age >= 50) {
-			sunPushups = (int) (weight * 0.18 * 2);
-			sunSitups = (int) (weight * 0.18 * 3);
-			sunSquats = (int) (weight * 0.18 * 4);
+		
+		if (index == 3) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
 		}
+		
+		if (index == 4) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
+		}
+		
+		if (index == 5) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
+		}
+		
+		if (index == 6) {
+			if (age < 13) {
+				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
+				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
+				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+			}
+			if (age >= 13 && age < 18) {
+				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
+				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
+				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+			}
+			if (age >= 18 && age < 50) {
+				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+			}
+			if (age >= 50) {
+				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
+				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
+				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+			}
+		}	
 	}
 	
-	/**
-	 * Calculates a work out for Monday based on age and weight 
-	 */
-	private void mondayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			monPushups = (int) (weight * 0.25 * 1);
-			monSitups = (int) (weight * 0.25 * 2);
-			monSquats = (int) (weight * 0.25 * 3);
-		}
-		if (age >= 13 && age < 18) {
-			monPushups = (int) (weight * 0.17 * 2);
-			monSitups = (int) (weight * 0.17 * 4);
-			monSquats = (int) (weight * 0.17 * 6);
-		}
-		if (age >= 18 && age < 50) {
-			monPushups = (int) (weight * 0.10 * 3);
-			monSitups = (int) (weight * 0.10 * 5);
-			monSquats = (int) (weight * 0.10 * 7);
-		}
-		if (age >= 50) {
-			monPushups = (int) (weight * 0.18 * 1);
-			monSitups = (int) (weight * 0.18 * 2);
-			monSquats = (int) (weight * 0.18 * 3);
-		}
+	public int returnPushups() {
+		return pushups;
 	}
 	
-	/**
-	 * Calculates a work out for Tuesday based on age and weight 
-	 */
-	private void tuesdayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			tuePushups = (int) (weight * 0.25 * 3);
-			tueSitups = (int) (weight * 0.25 * 4);
-			tueSquats = (int) (weight * 0.25 * 5);
-		}
-		if (age >= 13 && age < 18) {
-			tuePushups = (int) (weight * 0.17 * 4);
-			tueSitups = (int) (weight * 0.17 * 6);
-			tueSquats = (int) (weight * 0.17 * 8);
-		}
-		if (age >= 18 && age < 50) {
-			tuePushups = (int) (weight * 0.10 * 5);
-			tueSitups = (int) (weight * 0.10 * 7);
-			tueSquats = (int) (weight * 0.10 * 9);
-		}
-		if (age >= 50) {
-			tuePushups = (int) (weight * 0.18 * 3);
-			tueSitups = (int) (weight * 0.18 * 4);
-			tueSquats = (int) (weight * 0.18 * 5);
-		}
-		
+	public int returnSitups() {
+		return situps;
 	}
 	
-	/**
-	 * Calculates a work out for Wednesday based on age and weight 
-	 */
-	private void wednesdayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			wedPushups = (int) (weight * 0.25 * 1);
-			wedSitups = (int) (weight * 0.25 * 2);
-			wedSquats = (int) (weight * 0.25 * 3);
-		}
-		if (age >= 13 && age < 18) {
-			wedPushups = (int) (weight * 0.17 * 2);
-			wedSitups = (int) (weight * 0.17 * 4);
-			wedSquats = (int) (weight * 0.17 * 6);
-		}
-		if (age >= 18 && age < 50) {
-			wedPushups = (int) (weight * 0.10 * 3);
-			wedSitups = (int) (weight * 0.10 * 5);
-			wedSquats = (int) (weight * 0.10 * 7);
-		}
-		if (age >= 50) {
-			wedPushups = (int) (weight * 0.18 * 1);
-			wedSitups = (int) (weight * 0.18 * 2);
-			wedSquats = (int) (weight * 0.18 * 3);
-		}
-		
+	public int returnSquats() {
+		return squats;
 	}
-	
-	/**
-	 * Calculates a work out for Thursday based on age and weight 
-	 */
-	private void thursdayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			thurPushups = (int) (weight * 0.25 * 2);
-			thurSitups = (int) (weight * 0.25 * 4);
-			thurSquats = (int) (weight * 0.25 * 4);
-		}
-		if (age >= 13 && age < 18) {
-			thurPushups = (int) (weight * 0.17 * 3);
-			thurSitups = (int) (weight * 0.17 * 6);
-			thurSquats = (int) (weight * 0.17 * 7);
-		}
-		if (age >= 18 && age < 50) {
-			thurPushups = (int) (weight * 0.10 * 4);
-			thurSitups = (int) (weight * 0.10 * 7);
-			thurSquats = (int) (weight * 0.10 * 8);
-		}
-		if (age >= 50) {
-			thurPushups = (int) (weight * 0.18 * 2);
-			thurSitups = (int) (weight * 0.18 * 4);
-			thurSquats = (int) (weight * 0.18 * 4);
-		}
-		
-	}
-	
-	/**
-	 * Calculates a work out for Friday based on age and weight 
-	 */
-	private void fridayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			friPushups = (int) (weight * 0.25 * 2);
-			friSitups = (int) (weight * 0.25 * 1);
-			friSquats = (int) (weight * 0.25 * 2);
-		}
-		if (age >= 13 && age < 18) {
-			friPushups = (int) (weight * 0.17 * 3);
-			friSitups = (int) (weight * 0.17 * 3);
-			friSquats = (int) (weight * 0.17 * 5);
-		}
-		if (age >= 18 && age < 50) {
-			friPushups = (int) (weight * 0.10 * 4);
-			friSitups = (int) (weight * 0.10 * 4);
-			friSquats = (int) (weight * 0.10 * 6);
-		}
-		if (age >= 50) {
-			friPushups = (int) (weight * 0.18 * 2);
-			friSitups = (int) (weight * 0.18 * 1);
-			friSquats = (int) (weight * 0.18 * 2);
-		}
-		
-	}
-	
-	/**
-	 * Calculates a work out for Saturday based on age and weight 
-	 */
-	private void saturdayWorkout() {
-		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
-		if (age < 13) {
-			satPushups = (int) (weight * 0.25 * 2);
-			satSitups = (int) (weight * 0.25 * 3);
-			satSquats = (int) (weight * 0.25 * 4);
-		}
-		if (age >= 13 && age < 18) {
-			satPushups = (int) (weight * 0.17 * 3);
-			satSitups = (int) (weight * 0.17 * 5);
-			satSquats = (int) (weight * 0.17 * 7);
-		}
-		if (age >= 18 && age < 50) {
-			satPushups = (int) (weight * 0.10 * 4);
-			satSitups = (int) (weight * 0.10 * 6);
-			satSquats = (int) (weight * 0.10 * 8);
-		}
-		if (age >= 50) {
-			satPushups = (int) (weight * 0.18 * 2);
-			satSitups = (int) (weight * 0.18 * 3);
-			satSquats = (int) (weight * 0.18 * 4);
-		}
-	}
-	
-	/**
-	 * Formats all the workouts for each day in the week into an easy to read format
-	 * 
-	 */
-	public String format() {
-		//Formats work outs to do based on day and displays them
-		//in an easy format to see
-		String workoutSchedule;
-		workoutSchedule = "=====Sunday=====" + "\n" + "Pushups to do: " + sunPushups + "\n" 
-				+ "Situps to do: " + sunSitups + "\n" + "Squats to do: " + sunSquats + "\n";
-		
-		workoutSchedule += "=====Monday=====" + "\n" + "Pushups to do: " + monPushups + "\n" 
-				+ "Situps to do: " + monSitups + "\n" + "Squats to do: " + monSquats + "\n";
-		
-		workoutSchedule += "=====Tuesday=====" + "\n" + "Pushups to do: " + tuePushups + "\n" 
-				+ "Situps to do: " + tueSitups + "\n" + "Squats to do: " + tueSquats + "\n";
-		
-		workoutSchedule += "=====Wednesday=====" + "\n" + "Pushups to do: " + wedPushups + "\n" 
-				+ "Situps to do: " + wedSitups + "\n" + "Squats to do: " + wedSquats + "\n";
-		
-		workoutSchedule += "=====Thursday=====" + "\n" + "Pushups to do: " + thurPushups + "\n" 
-				+ "Situps to do: " + thurSitups + "\n" + "Squats to do: " + thurSquats + "\n";
-		
-		workoutSchedule += "=====Friday=====" + "\n" + "Pushups to do: " + friPushups + "\n" 
-				+ "Situps to do: " + friSitups + "\n" + "Squats to do: " + friSquats + "\n";
-		
-		workoutSchedule += "=====Saturday=====" + "\n" + "Pushups to do: " + satPushups + "\n" 
-				+ "Situps to do: " + satSitups + "\n" + "Squats to do: " + satSquats + "\n";
-		
-		return workoutSchedule;
-	}
-
 }
+	

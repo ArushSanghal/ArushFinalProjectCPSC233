@@ -158,7 +158,7 @@ public class WorkoutTypePlannerController {
         	}
     		
     		//calls the DailyWorkoutCreator Function 
-        	DailyWorkoutCreator workout = new DailyWorkoutCreator(age, weight);
+        	WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, 0);
         	
         	//Stores the pushups, situps, and squats calculated 
         	int pushups = workout.returnPushups();
@@ -207,18 +207,113 @@ public class WorkoutTypePlannerController {
         		weeklyErrorLabel.setText("Please enter a value greater than 0");
         	}
     		
-    		//calls the WeeklyWorkoutCreator Function
-    		WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight);
-    		
-    		//Calls the format function from the WeeklyWorkoutCreator Class
-    		String formatting = workout.format();
-    		
-    		//Creates a VBox and label with the format
     		VBox workoutList = new VBox();
-    		Label formatLabel = new Label(formatting);
     		
-    		//Adds the formatted work outs to the VBox
-    		workoutList.getChildren().addAll(formatLabel);
+    		for (int i = 0; i < 7; i++) {
+    			if (i == 0) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	    		//Creates labels to show workouts that should be done
+    	    		Label dayNameSun = new Label("===Sunday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameSun, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 1) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	//Creates labels to show workouts that should be done
+    	    		Label dayNameMon = new Label("===Monday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameMon, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 2) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	//Creates labels to show workouts that should be done
+    	    		Label dayNameTues = new Label("===Tuesday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameTues, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 3) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	//Creates labels to show workouts that should be done
+    	    		Label dayNameWed = new Label("===Wednesday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameWed, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 4) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	Label dayNameThurs = new Label("===Thursday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameThurs, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 5) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	Label dayNameFri = new Label("===Friday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameFri, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    			if (i == 6) {
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				
+    				int pushups = workout.returnPushups();
+    	        	int situps = workout.returnSitups();
+    	        	int squats = workout.returnSquats();
+    	        	
+    	        	Label dayNameSat = new Label("===Saturday===");
+    	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
+    	        	Label situpsLabel = new Label("situps to do: " + situps);
+    	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	workoutList.getChildren().addAll(dayNameSat, pushupLabel, situpsLabel, squatsLabel);
+    			}
+    			
+    		}
+    		
     		if (weight > 0) {
     			Scene workoutInfo = new Scene(workoutList);
     			applicationStage.setScene(workoutInfo);
