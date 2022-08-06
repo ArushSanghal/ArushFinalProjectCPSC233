@@ -39,7 +39,6 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 		this.setIndex(indexGiven);
 		
 		workoutMaker();
-		
 	}
 	
 	/**

@@ -180,6 +180,7 @@ public class WorkoutTypePlannerController {
         		applicationStage.setScene(workoutInfo);
         	}
     	}
+    	
     	catch (NumberFormatException e) {
     		dailyErrorLabel.setText("Please enter a valid number");
     	}
