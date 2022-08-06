@@ -8,21 +8,6 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	private int situps = 0;
 	private int squats = 0;
 	private double[] ageMultiplierValues = {0.25, 0.17, 0.10, 0.18};
-	private int[] pushupValuesUnderThirteen = {2, 1, 3, 1, 2, 2, 2};
-	private int[] situpsValuesUnderThirteen = {3, 2, 4, 2, 4, 1, 3};
-	private int[] squatsValuesUnderThirteen = {4, 3, 5, 3, 4, 2, 4};
-	
-	private int[] pushupValuesBetweenThirteenAndEighteen = {3, 2, 4, 2, 3, 3, 3};
-	private int[] situpsValuesBetweenThirteenAndEighteen = {5, 4, 6, 4, 5, 3, 5};
-	private int[] squatsValuesBetweenThirteenAndEighteen = {7, 6, 8, 6, 7, 5, 7};
-	
-	private int[] pushupValuesBetweenEighteenAndFifty = {4, 3, 5, 3, 4, 4, 4};
-	private int[] situpsValuesBetweenEighteenAndFifty = {6, 5, 7, 5, 7, 4, 6};
-	private int[] squatsValuesBetweenEighteenAndFifty = {8, 7, 9, 7, 8, 6, 8};
-	
-	private int[] pushupValuesAboveFifty = {2, 1, 3, 1, 2, 2, 2};
-	private int[] situpsValuesAboveFifty = {3, 2, 4, 2, 4, 1, 3};
-	private int[] squatsValuesAboveFifty = {4, 3, 5, 3, 4, 2, 4};
 	
 	
 	
@@ -52,162 +37,162 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 		int index = this.getIndex();
 		if (index == 0) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 1) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 2) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 3) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 4) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 5) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}
 		
 		if (index == 6) {
 			if (age < 13) {
-				pushups = (int) (weight * ageMultiplierValues[0] * pushupValuesUnderThirteen[index]);
-				situps = (int) (weight * ageMultiplierValues[0] * situpsValuesUnderThirteen[index]);
-				squats = (int) (weight * ageMultiplierValues[0] * squatsValuesUnderThirteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[0] * this.getPushupValuesUnderThirteen(index));
+				situps = (int) (weight * ageMultiplierValues[0] * this.getSitupsValuesUnderThirteen(index));
+				squats = (int) (weight * ageMultiplierValues[0] * this.getSquatsValuesUnderThirteen(index));
 			}
 			if (age >= 13 && age < 18) {
-				pushups = (int) (weight * ageMultiplierValues[1] * pushupValuesBetweenThirteenAndEighteen[index]);
-				situps = (int) (weight * ageMultiplierValues[1] * situpsValuesBetweenThirteenAndEighteen[index]);
-				squats = (int) (weight * ageMultiplierValues[1] * squatsValuesBetweenThirteenAndEighteen[index]);
+				pushups = (int) (weight * ageMultiplierValues[1] * this.getPushupValuesBetweenThirteenAndEighteen(index));
+				situps = (int) (weight * ageMultiplierValues[1] * this.getSitupsValuesBetweenThirteenAndEighteen(index));
+				squats = (int) (weight * ageMultiplierValues[1] * this.getSquatsValuesBetweenThirteenAndEighteen(index));
 			}
 			if (age >= 18 && age < 50) {
-				pushups = (int) (weight * ageMultiplierValues[2] * pushupValuesBetweenEighteenAndFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[2] * situpsValuesBetweenEighteenAndFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[2] * squatsValuesBetweenEighteenAndFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[2] * this.getPushupValuesBetweenEighteenAndFifty(index));
+				situps = (int) (weight * ageMultiplierValues[2] * this.getSitupsValuesBetweenEighteenAndFifty(index));
+				squats = (int) (weight * ageMultiplierValues[2] * this.getSquatsValuesBetweenEighteenAndFifty(index));
 			}
 			if (age >= 50) {
-				pushups = (int) (weight * ageMultiplierValues[3] * pushupValuesAboveFifty[index]);
-				situps = (int) (weight * ageMultiplierValues[3] * situpsValuesAboveFifty[index]);
-				squats = (int) (weight * ageMultiplierValues[3] * squatsValuesAboveFifty[index]);
+				pushups = (int) (weight * ageMultiplierValues[3] * this.getPushupValuesAboveFifty(index));
+				situps = (int) (weight * ageMultiplierValues[3] * this.getSitupsValuesAboveFifty(index));
+				squats = (int) (weight * ageMultiplierValues[3] * this.getSquatsValuesAboveFifty(index));
 			}
 		}	
 	}
