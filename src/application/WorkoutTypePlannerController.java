@@ -160,6 +160,7 @@ public class WorkoutTypePlannerController {
      * 
      * @param ageTextField The TextField the user had input for their age
      * @param weightTextField The TextField the user had input for their weight
+     * @param sexChoice The ChoiceBox the user had input for their sex
      * @return Creates a GUI which shows the work out for the day for the user
      */
     void workoutDailySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
@@ -213,6 +214,7 @@ public class WorkoutTypePlannerController {
      * 
      * @param ageTextField The TextField the user had input for their age
      * @param weightTextField The TextField the user had input for their weight
+     * @param sexChoice The ChoiceBox the user had input for their sex
      * @return Creates a GUI which shows the work out for the week for the user
      */
     void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
@@ -231,8 +233,11 @@ public class WorkoutTypePlannerController {
     		
     		VBox workoutList = new VBox();
     		
+    		//Uses a for loop to cycle through 7 days of the week
     		for (int i = 0; i < 7; i++) {
+    			//if statements to check the day
     			if (i == 0) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -244,10 +249,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameSun, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 1) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -259,10 +267,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameMon, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 2) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -274,10 +285,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameTues, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 3) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -289,10 +303,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameWed, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 4) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -303,10 +320,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameThurs, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 5) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -317,10 +337,13 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameFri, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 6) {
+    				//calls class to being calculation based on weight, height, day and sex
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -331,6 +354,8 @@ public class WorkoutTypePlannerController {
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
+    	        	
+    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameSat, pushupLabel, situpsLabel, squatsLabel);
     			}
     			

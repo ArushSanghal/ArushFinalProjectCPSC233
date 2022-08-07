@@ -16,6 +16,8 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	 * 
 	 * @param ageGiven value of age user had previously entered
 	 * @param weightGiven value of weight user had previously entered
+	 * @param indexGiven value of index to determine the day
+	 * @param weightGiven the users entered sex 
 	 */
 	public WeeklyWorkoutCreator(int ageGiven, int weightGiven, int indexGiven, String sexGiven) {
 		//Stores the values for age and weight
@@ -28,7 +30,7 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	}
 	
 	/**
-	 * Calculates a work out for Sunday based on age and weight 
+	 * Calculates a work out for Sunday based on age, weight, and sex 
 	 */
 	private void workoutMaker() {
 		//Checks to see the age range, and calculates number of pushups
@@ -477,14 +479,29 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 		}
 	}
 	
+	/**
+	 * returns values of pushups the user needs to do 
+	 * 
+	 * @return returns the numbers of pushups the user needs to do
+	 */
 	public int returnPushups() {
 		return pushups;
 	}
 	
+	/**
+	 * returns values of situps the user needs to do 
+	 * 
+	 * @return returns the numbers of situps the user needs to do
+	 */
 	public int returnSitups() {
 		return situps;
 	}
 	
+	/**
+	 * returns values of squats the user needs to do
+	 * 
+	 *  @return returns the numbers of squats the user needs to do
+	 */
 	public int returnSquats() {
 		return squats;
 	}
