@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -36,6 +37,15 @@ public class WorkoutTypePlannerController {
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
+    	//Creates a label and choice box where users can enter their sex
+    	//Then stores it in a HBox for later
+    	Label sexLabel = new Label("Sex");
+    	ChoiceBox sexChoice = new ChoiceBox<String>();
+    	sexChoice.getItems().add("Male");
+    	sexChoice.getItems().add("Female");
+    	HBox sexHolder = new HBox();
+    	sexHolder.getChildren().addAll(sexLabel, sexChoice);
+    	
     	//Create a label and textfield for age where users can enter their weight
     	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
@@ -44,7 +54,7 @@ public class WorkoutTypePlannerController {
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
     	
     	//Stores the two HBoxes from before into the VBox
-    	infoHolder.getChildren().addAll(ageHolder, weightHolder);
+    	infoHolder.getChildren().addAll(ageHolder, sexHolder, weightHolder);
     	
     	//Creates a back button which can send back to the original GUI
     	//Adds it to the VBox
@@ -55,7 +65,7 @@ public class WorkoutTypePlannerController {
     	//Creates a submit button which initializes calculations for a workout
     	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
-    	submitButton.setOnAction(submitEvent -> workoutDailySchedule(ageTextField, weightTextField));
+    	submitButton.setOnAction(submitEvent -> workoutDailySchedule(ageTextField, weightTextField, sexChoice));
     	infoHolder.getChildren().add(submitButton);
     	
     	//Creates an error message if user input is invalid
@@ -91,6 +101,15 @@ public class WorkoutTypePlannerController {
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
+    	//Creates a label and choice box where users can enter their sex
+    	//Then stores it in a HBox for later
+    	Label sexLabel = new Label("Sex");
+    	ChoiceBox sexChoice = new ChoiceBox<String>();
+    	sexChoice.getItems().add("Male");
+    	sexChoice.getItems().add("Female");
+    	HBox sexHolder = new HBox();
+    	sexHolder.getChildren().addAll(sexLabel, sexChoice);
+    	
     	//Create a label and textfield for age where users can enter their weight
     	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
@@ -99,7 +118,7 @@ public class WorkoutTypePlannerController {
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
     	
     	//Stores the two HBoxes from before into the VBox
-    	infoHolder.getChildren().addAll(ageHolder, weightHolder);
+    	infoHolder.getChildren().addAll(ageHolder, sexHolder, weightHolder);
     	
     	//Creates a back button which can send back to the original GUI
     	//Adds it to the VBox
@@ -110,7 +129,7 @@ public class WorkoutTypePlannerController {
     	//Creates a submit button which initializes calculations for a work out
     	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
-    	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField));
+    	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField, sexChoice));
     	infoHolder.getChildren().add(submitButton);
     	
     	//Creates an error message if user input is invalid
@@ -143,13 +162,14 @@ public class WorkoutTypePlannerController {
      * @param weightTextField The TextField the user had input for their weight
      * @return Creates a GUI which shows the work out for the day for the user
      */
-    void workoutDailySchedule(TextField ageTextField, TextField weightTextField) {
+    void workoutDailySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
     	//Try and Catch statement test to see if the user entered a valid number
     	try {
-    		//stores the age and weight
+    		//stores the age, weight and sex
     		int age = Integer.valueOf(ageTextField.getText());
     		double weightd = Double.parseDouble(weightTextField.getText());
     		int weight = (int) weightd;
+    		String sex = (String) sexChoice.getValue();
     		
     		//Tests to see if the weight or age is less than or equal to 0
     		//and creates an error message to send back if it is
@@ -158,7 +178,7 @@ public class WorkoutTypePlannerController {
         	}
     		
     		//calls the DailyWorkoutCreator Function 
-        	WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, 0);
+        	WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, 0, sex);
         	
         	//Stores the pushups, situps, and squats calculated 
         	int pushups = workout.returnPushups();
@@ -195,12 +215,13 @@ public class WorkoutTypePlannerController {
      * @param weightTextField The TextField the user had input for their weight
      * @return Creates a GUI which shows the work out for the week for the user
      */
-    void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField) {
+    void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
     	//Try and Catch statement test to see if the user entered a valid number
     	try {
-    		//stores the age and weight
+    		//stores the age, weight and sex
     		int age = Integer.valueOf(ageTextField.getText());
     		int weight = Integer.valueOf(weightTextField.getText());
+    		String sex = (String) sexChoice.getValue();
     		
     		//Tests to see if the weight or age is less than or equal to 0
     		//and creates an error message to send back if it is
@@ -212,7 +233,7 @@ public class WorkoutTypePlannerController {
     		
     		for (int i = 0; i < 7; i++) {
     			if (i == 0) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -227,7 +248,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 1) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -242,7 +263,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 2) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -257,7 +278,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 3) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -272,7 +293,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 4) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -286,7 +307,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 5) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -300,7 +321,7 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 6) {
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i);
+    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();

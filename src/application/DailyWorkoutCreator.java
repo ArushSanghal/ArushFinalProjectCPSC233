@@ -8,6 +8,7 @@ public class DailyWorkoutCreator {
 	private int age = 0;
 	private int weight = 0;
 	private int index = 0;
+	private String sex;
 	
 	private int[] pushupValuesUnderThirteen = {2, 1, 3, 1, 2, 2, 2};
 	private int[] situpsValuesUnderThirteen = {3, 2, 4, 2, 4, 1, 3};
@@ -37,6 +38,10 @@ public class DailyWorkoutCreator {
 		this.index = indexGiven;
 	}
 	
+	public void setSex(String sexGiven) {
+		this.sex = sexGiven;
+	}
+	
 	public int getAge() {
 		return age;
 	}
@@ -47,6 +52,10 @@ public class DailyWorkoutCreator {
 	
 	public int getIndex() {
 		return index;
+	}
+	
+	public String getSex() {
+		return sex;
 	}
 	
 	public int getPushupValuesUnderThirteen(int indexGiven) {
