@@ -167,7 +167,7 @@ public class WorkoutTypePlannerController {
         	}
     		
     		//calls the DailyWorkoutCreator Function 
-        	WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, 0, sex);
+        	WorkoutCreator workout = new WorkoutCreator(age, weight, 0, sex);
         	
         	//Stores the pushups, situps, and squats calculated 
         	int pushups = workout.returnPushups();
@@ -236,7 +236,7 @@ public class WorkoutTypePlannerController {
     			//if statements to check the day
     			if (i == 0) {
     				//calls class to being calculation based on weight, height, day and sex
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -254,7 +254,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 1) {
     				
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -270,7 +270,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 2) {
 
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -286,7 +286,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 3) {
 
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -302,7 +302,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 4) {
 
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -318,7 +318,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 5) {
 
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
@@ -334,7 +334,7 @@ public class WorkoutTypePlannerController {
     			
     			if (i == 6) {
 
-    				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
+    				WorkoutCreator workout = new WorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();

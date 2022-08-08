@@ -1,6 +1,6 @@
 package application;
 
-public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
+public class WorkoutCreator extends ClientInformationStore {
 	
 	//Private variables initialized so that they can be updated and
 	//referred to later
@@ -19,7 +19,7 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	 * @param indexGiven value of index to determine the day
 	 * @param weightGiven the users entered sex 
 	 */
-	public WeeklyWorkoutCreator(int ageGiven, int weightGiven, int indexGiven, String sexGiven) {
+	public WorkoutCreator(int ageGiven, int weightGiven, int indexGiven, String sexGiven) {
 		//Stores the values for age and weight
 		this.setAge(ageGiven);
 		this.setWeight(weightGiven);
