@@ -34,7 +34,7 @@ public class WeeklyWorkoutCreator extends DailyWorkoutCreator {
 	 */
 	private void workoutMaker() {
 		//Checks to see the age range, and calculates number of pushups
-		//situps and squats to do based on weight
+		//situps and squats to do based on weight and sex
 		int weight = this.getWeight();
 		int age = this.getAge();
 		int index = this.getIndex();

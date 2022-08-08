@@ -30,15 +30,13 @@ public class WorkoutTypePlannerController {
     	//Initializes a VBox that will store everything later
     	VBox infoHolder = new VBox();
     	
-    	//Create a label and textfield for age where users can enter their age
+    	//Creates labels and entry areas
     	//Then stores it in a HBox for later
     	Label ageLabel = new Label("Age");
     	TextField ageTextField = new TextField();
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
-    	//Creates a label and choice box where users can enter their sex
-    	//Then stores it in a HBox for later
     	Label sexLabel = new Label("Sex");
     	ChoiceBox sexChoice = new ChoiceBox<String>();
     	sexChoice.getItems().add("Male");
@@ -46,24 +44,18 @@ public class WorkoutTypePlannerController {
     	HBox sexHolder = new HBox();
     	sexHolder.getChildren().addAll(sexLabel, sexChoice);
     	
-    	//Create a label and textfield for age where users can enter their weight
-    	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
     	TextField weightTextField = new TextField();
     	HBox weightHolder = new HBox();
     	weightHolder.getChildren().addAll(weightLabel, weightTextField);
     	
-    	//Stores the two HBoxes from before into the VBox
+    	//Stores the three HBoxes from before into the VBox
     	infoHolder.getChildren().addAll(ageHolder, sexHolder, weightHolder);
     	
-    	//Creates a back button which can send back to the original GUI
-    	//Adds it to the VBox
     	Button backButton = new Button("Back");
     	backButton.setOnAction(backEvent -> sendBack(mainScene));
     	infoHolder.getChildren().add(backButton);
     	
-    	//Creates a submit button which initializes calculations for a workout
-    	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
     	submitButton.setOnAction(submitEvent -> workoutDailySchedule(ageTextField, weightTextField, sexChoice));
     	infoHolder.getChildren().add(submitButton);
@@ -94,15 +86,13 @@ public class WorkoutTypePlannerController {
     	//Initializes a VBox that will store everything later
     	VBox infoHolder = new VBox();
     	
-    	//Create a label and textfield for age where users can enter their age
+    	//Creates labels and entry areas
     	//Then stores it in a HBox for later
     	Label ageLabel = new Label("Age");
     	TextField ageTextField = new TextField();
     	HBox ageHolder = new HBox();
     	ageHolder.getChildren().addAll(ageLabel, ageTextField);
     	
-    	//Creates a label and choice box where users can enter their sex
-    	//Then stores it in a HBox for later
     	Label sexLabel = new Label("Sex");
     	ChoiceBox sexChoice = new ChoiceBox<String>();
     	sexChoice.getItems().add("Male");
@@ -110,8 +100,6 @@ public class WorkoutTypePlannerController {
     	HBox sexHolder = new HBox();
     	sexHolder.getChildren().addAll(sexLabel, sexChoice);
     	
-    	//Create a label and textfield for age where users can enter their weight
-    	//Then stores it in a HBox for later
     	Label weightLabel = new Label("Weight (kg)");
     	TextField weightTextField = new TextField();
     	HBox weightHolder = new HBox();
@@ -120,14 +108,10 @@ public class WorkoutTypePlannerController {
     	//Stores the two HBoxes from before into the VBox
     	infoHolder.getChildren().addAll(ageHolder, sexHolder, weightHolder);
     	
-    	//Creates a back button which can send back to the original GUI
-    	//Adds it to the VBox
     	Button backButton = new Button("Back");
     	backButton.setOnAction(backEvent -> sendBack(mainScene));
     	infoHolder.getChildren().add(backButton);
     	
-    	//Creates a submit button which initializes calculations for a work out
-    	//Adds it to the VBox
     	Button submitButton = new Button("Submit");
     	submitButton.setOnAction(submitEvent -> workoutWeeklySchedule(ageTextField, weightTextField, sexChoice));
     	infoHolder.getChildren().add(submitButton);
@@ -166,6 +150,10 @@ public class WorkoutTypePlannerController {
     void workoutDailySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
     	//Try and Catch statement test to see if the user entered a valid number
     	try {
+    		
+    		//Stores original GUI for later
+    		Scene mainScene = applicationStage.getScene();
+    		
     		//stores the age, weight and sex
     		int age = Integer.valueOf(ageTextField.getText());
     		double weightd = Double.parseDouble(weightTextField.getText());
@@ -196,6 +184,12 @@ public class WorkoutTypePlannerController {
         	
         	//Stores the label into the VBox
         	workoutList.getChildren().addAll(pushupLabel, situpsLabel, squatsLabel);
+        	
+        	Button backButton = new Button("Back");
+        	backButton.setOnAction(backEvent -> sendBack(mainScene));
+        	workoutList.getChildren().add(backButton);
+        	
+        	
         	if (weight > 0) {
         		Scene workoutInfo = new Scene(workoutList);
         		applicationStage.setScene(workoutInfo);
@@ -220,6 +214,10 @@ public class WorkoutTypePlannerController {
     void workoutWeeklySchedule(TextField ageTextField, TextField weightTextField, ChoiceBox sexChoice) {
     	//Try and Catch statement test to see if the user entered a valid number
     	try {
+    		
+    		//Saves the original GUI for later
+        	Scene mainScene = applicationStage.getScene();
+        	
     		//stores the age, weight and sex
     		int age = Integer.valueOf(ageTextField.getText());
     		int weight = Integer.valueOf(weightTextField.getText());
@@ -255,61 +253,55 @@ public class WorkoutTypePlannerController {
     			}
     			
     			if (i == 1) {
-    				//calls class to being calculation based on weight, height, day and sex
+    				
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
     	        	int squats = workout.returnSquats();
     	        	
-    	        	//Creates labels to show workouts that should be done
     	    		Label dayNameMon = new Label("===Monday===");
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameMon, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 2) {
-    				//calls class to being calculation based on weight, height, day and sex
+
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
     	        	int squats = workout.returnSquats();
     	        	
-    	        	//Creates labels to show workouts that should be done
     	    		Label dayNameTues = new Label("===Tuesday===");
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameTues, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 3) {
-    				//calls class to being calculation based on weight, height, day and sex
+
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
     	        	int situps = workout.returnSitups();
     	        	int squats = workout.returnSquats();
     	        	
-    	        	//Creates labels to show workouts that should be done
     	    		Label dayNameWed = new Label("===Wednesday===");
     	        	Label pushupLabel = new Label("Pushup to do: " + pushups);
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameWed, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 4) {
-    				//calls class to being calculation based on weight, height, day and sex
+
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -321,12 +313,11 @@ public class WorkoutTypePlannerController {
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameThurs, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 5) {
-    				//calls class to being calculation based on weight, height, day and sex
+
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -338,12 +329,11 @@ public class WorkoutTypePlannerController {
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameFri, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     			if (i == 6) {
-    				//calls class to being calculation based on weight, height, day and sex
+
     				WeeklyWorkoutCreator workout = new WeeklyWorkoutCreator(age, weight, i, sex);
     				
     				int pushups = workout.returnPushups();
@@ -355,11 +345,14 @@ public class WorkoutTypePlannerController {
     	        	Label situpsLabel = new Label("situps to do: " + situps);
     	        	Label squatsLabel = new Label("squats to do: " + squats);
     	        	
-    	        	//stores the workout for the day and adds them to the list
     	        	workoutList.getChildren().addAll(dayNameSat, pushupLabel, situpsLabel, squatsLabel);
     			}
     			
     		}
+    		
+    		Button backButton = new Button("Back");
+        	backButton.setOnAction(backEvent -> sendBack(mainScene));
+        	workoutList.getChildren().add(backButton);
     		
     		if (weight > 0) {
     			Scene workoutInfo = new Scene(workoutList);
