@@ -159,10 +159,14 @@ public class WorkoutTypePlannerController {
     		double weightd = Double.parseDouble(weightTextField.getText());
     		int weight = (int) weightd;
     		
-    		//defaults sex as male
-    		String sex = "Male";
+    		//defaults sex as null
+    		String sex = null;
     		if ((String) sexChoice.getValue() != null ) {
     			sex = (String) sexChoice.getValue();
+    		}
+    		
+    		if ((String) sexChoice.getValue() == null ) {
+    			dailyErrorLabel.setText("Please select one of the sexes");
     		}
     		
     		//Tests to see if the weight or age is less than or equal to 0
@@ -227,10 +231,14 @@ public class WorkoutTypePlannerController {
     		int age = Integer.valueOf(ageTextField.getText());
     		int weight = Integer.valueOf(weightTextField.getText());
     		
-    		//defaults sex as male
-    		String sex = "Male";
+    		//defaults sex as null
+    		String sex = null;
     		if ((String) sexChoice.getValue() != null ) {
     			sex = (String) sexChoice.getValue();
+    		}
+    		
+    		if ((String) sexChoice.getValue() == null ) {
+    			weeklyErrorLabel.setText("Please select one of the sexes");
     		}
     		
     		//Tests to see if the weight or age is less than or equal to 0
