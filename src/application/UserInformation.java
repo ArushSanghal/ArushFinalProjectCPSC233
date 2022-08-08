@@ -1,6 +1,6 @@
 package application;
 
-public class DailyWorkoutCreator {
+public class UserInformation {
 	
 	//Private variables initialized so that they can be updated and
 	//referred to later
